@@ -1,0 +1,50 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container" style="margin-top:150px;">
+
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 300px;">
+	<h4 class="card-title mt-3 text-center">Register</h4>
+	<form method="post" enctype="multipart/form-data" action="">
+                                        {% csrf_token %}
+        {% if context %}
+            <p>{{ context }}</p>
+        {% endif %}
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <div class="form-group">
+            <input type="text" id="name" name="name" class="form-control" placeholder="username">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="Re-Enter Password">
+        </div>
+        <!-- form-group// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> register  </button>
+    </div> <!-- form-group// -->
+    <p class="text-center">already registered? <a href="{% url 'login' %}">Blog</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+<br><br>
+<article class="bg-secondary mb-3">
+</article>

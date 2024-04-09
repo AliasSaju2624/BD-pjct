@@ -1,0 +1,26 @@
+<title>Upload Video to S3</title>
+</head>
+<body>
+    <h1>Upload Video to S3 Bucket</h1>
+    <form method="POST" action="{% url 'upload_videos' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="video_file">Upload Video:</label>
+        <input type="file" id="video_file" name="video_file" accept="video/*">
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter video description here"></textarea>
+        <br>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="science">Science</option>
+            <option value="technology">Technology</option>
+            <option value="engineering">Engineering</option>
+            <option value="mathematics">Mathematics</option>
+            <!-- Add more options as needed -->
+        </select>
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'home' %}" class="btn btn-danger"> Go to home</a></p>  
+</body>
+</html>

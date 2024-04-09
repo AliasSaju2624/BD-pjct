@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Details</title>
+</head>
+<body>
+    <header>
+        <h1>Change Details</h1>
+        <p>This page displays the details of recent changes.</p>
+    </header>
+    <main>
+        <h2>Recent Changes:</h2>
+        <ul>
+            {% for change in changes %}
+            <li>{{ change }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

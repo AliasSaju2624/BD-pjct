@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import stripe
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,3 +133,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AWS_ACCESS_KEY_ID = 'AKIA6ODVAUSJSWITVFNW'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bdpjctbucket'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERIFY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STRIPE_SECRET_KEY = 'sk_test_51Inl9oSC7f0mCB5Pw9GCkIsM7tZMwF8bRZZ9yJzWkabNDSu8FIm0gvMkVYaFp3DUpiBn1domqFISwOpX6t6UXJbb00GQGCi9MY'  # Your Stripe test secret key
+STRIPE_PUBLISHIBLE_KEY='pk_test_51Inl9oSC7f0mCB5PYi6hVjRHgVM8Wv14nOkG4jhcY4CqHIAqoXC8FRuZdFnQThFThHnZj156dD7VAQNLpZOfcp6N00hOtyw0zx'

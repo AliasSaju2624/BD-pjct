@@ -19,6 +19,7 @@
         <h2>Login</h2>
         <form method="post" enctype="multipart/form-data" action="">
                                         {% csrf_token %}
+
           <div class="inputBox">
             <input type="text" name="name" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Username</label>
@@ -32,7 +33,7 @@
           </div>
           <input type="submit" name="sign-in" value="Sign In"><br>
             <p> Do You Want To Go Home....!
-            <a href="{% url 'login' %}" class="btn btn-danger"> Click Me</a></p>
+            <a href="{% url 'register' %}" class="btn btn-danger"> Click Me</a></p>
 
         </form>
       </div>

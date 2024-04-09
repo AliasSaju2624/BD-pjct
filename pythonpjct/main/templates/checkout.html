@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form id="payment-form" action="{% url 'process_payment' %}" method="POST">
+        {% csrf_token %}
+        <label for="card-element">
+            Credit or debit card
+        </label>
+        <div id="card-element">
+            <!-- Stripe.js injects the Card Element -->
+        </div>
+        <!-- Used to display form errors -->
+        <div id="card-errors" role="alert"></div>
+        
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required>
+        
+        <label for="customer_address">Customer Address:</label>
+        <input type="text" id="customer_address" name="customer_address" required>
+        
+        <button id="submit-button" type="submit">Pay Now</button>
+    </form>
+
+    <script>
+        var stripe = Stripe('pk_test_51Inl9oSC7f0mCB5PYi6hVjRHgVM8Wv14nOkG4jhcY4CqHIAqoXC8FRuZdFnQThFThHnZj156dD7VAQNLpZOfcp6N00hOtyw0zx');  // Your Stripe test publishable key
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        var submitButton = document.getElementById('submit-button');
+        var errorMessage = document.getElementById('card-errors');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            stripe.createToken(cardElement).then(function(result) {
+                if (result.error) {
+                    errorMessage.textContent = result.error.message;
+                } else {
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+
+        function stripeTokenHandler(token) {
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripe_token');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
+            form.submit();
+        }
+    </script>
+</body>
+</html>

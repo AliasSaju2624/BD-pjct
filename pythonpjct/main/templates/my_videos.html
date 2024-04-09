@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Videos</title>
+</head>
+<body>
+    <h1>My videos                                                                                                   </h1>
+    <ul>
+        {% for video in videos %}
+        <li>
+            <strong>Description:</strong> {{ video.description }}<br>
+            <strong>URL:</strong> <a href="{{ video.url }}">{{ video.video_url }}</a>
+            <strong>Category:</strong>{{ video.category }}</a>
+            <video controls>
+                <source src="{{ video.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </li>
+        {% empty %}
+        <li>No videos found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

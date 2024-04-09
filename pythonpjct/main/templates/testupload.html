@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Video Details</title>
+</head>
+<body>
+    <h1>Get Video Details</h1>
+    <form method="post" action="{% url 'get_video' %}">
+        {% csrf_token %}
+        <label for="video_id">Video ID:</label>
+        <input type="text" id="video_id" name="video_id" required>
+        <button type="submit">Get Details</button>
+    </form>
+</body>
+</html>

@@ -14,7 +14,7 @@ body {
     width: 25rem;
     padding: 2.5rem;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.6);
+    background: transparent;
     border-radius: 0.625rem;
   }
   
@@ -58,8 +58,8 @@ body {
   .box .inputBox input:not([value=""]) ~ label {
     top: -1.125rem;
     left: 0;
-    color: #03a9f4;
-    font-size: 0.75rem;
+    color: #00008B;
+    font-size: 0.95rem;
   }
   
   .box input[type="submit"] {

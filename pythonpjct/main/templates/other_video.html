@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Videos</title>
+</head>
+<body>
+    <h1>Other User Videos</h1> 
+    <div class="video-cards">
+        {% for video in videos %}
+        <div class="video-card">
+            <h3>{{ video.description }}</h3>
+            <video controls>
+                <source src="{{ video.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <form action="{% url 'like_video' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="video_id" value="{{ video.id }}">
+                <button type="submit">Like</button>
+            </form>
+        </div>
+        {% empty %}
+        <p>No videos found.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

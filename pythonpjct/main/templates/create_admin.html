@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Admin</title>
+</head>
+<body>
+    <h1>Add Admin</h1>
+    <form method="post" action="{% url 'create_admin' %}">
+        {% csrf_token %}
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <button type="submit">Add Admin</button>
+    </form>
+</body>
+</html>

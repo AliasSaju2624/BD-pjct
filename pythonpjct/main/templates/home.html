@@ -6,7 +6,7 @@
     <title>My Video Platform</title>
 </head>
 <body>
-    <h1>LearnIT</h1>
+    <h1>LearnIT - Premium User Home</h1>
 
         <a href="{% url 'upload_videos' %}">
             <button>Upload Videos</button>
@@ -17,8 +17,11 @@
         <a href="{% url 'listothervideos' %}">
             <button>List other videos</button>
         </a>
-        <a href="{% url 'listothervideos' %}">
-            <button>List videos by category</button>
+        <a href="{% url 'update_user_info' %}">
+            <button>Update Information</button>
+        </a>
+        <a href="{% url 'generate_request' %}">
+            <button>Make new request</button>
         </a>
         <a href="{% url 'user_logout' %}">
             <button>User Logout</button>

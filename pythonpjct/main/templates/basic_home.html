@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Video Platform</title>
+    <title>Learnit</title>
 </head>
 <body>
-    <h1>LearnIT</h1>
+    <h1>LearnIT - User home</h1>
+    <input type="hidden" name="from_basic_page" value="True">
         <a href="{% url 'listothervideos' %}">
             <button>List other videos</button>
         </a>
-        <a href="{% url 'listothervideos' %}">
-            <button>List videos by category</button>
+        <a href="{% url 'update_subscription' %}">
+            <button>Purchase Subscription</button>
+        </a>
+        <a href="{% url 'update_user_info' %}">
+            <button>Update Information</button>
         </a>
         <a href="{% url 'user_logout' %}">
             <button>Logout</button>

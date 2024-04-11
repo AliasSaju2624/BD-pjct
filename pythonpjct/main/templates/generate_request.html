@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Request</title>
+</head>
+<body>
+    <h1>Generate Request</h1>
+    <form action="{% url 'generate_request' %}" method="post">
+        {% csrf_token %}
+        <label for="comment">Enter your request:</label><br>
+        <textarea id="comment" name="comment" rows="5" cols="50"></textarea><br>
+        <button type="submit">Submit Request</button>
+    </form>
+</body>
+</html>

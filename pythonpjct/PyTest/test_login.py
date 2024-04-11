@@ -10,10 +10,10 @@ class TestLogin(BaseClass):
         try:
             driver = self.driver
             username_input = driver.find_element(By.NAME, 'name')
-            username_input.send_keys('Test User1')
+            username_input.send_keys('JohnDoe1')
 
             password_input = driver.find_element(By.NAME, 'password')
-            password_input.send_keys('Test User1')
+            password_input.send_keys('JohnDoe1')
 
             login_button = driver.find_element(By.NAME, 'sign-in')
             login_button.click()

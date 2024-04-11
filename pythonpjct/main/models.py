@@ -23,6 +23,13 @@ class subscription(models.Model):
     userid        =   models.CharField(max_length=100,unique=True)
     subscribed_date = models.DateTimeField(auto_now_add=True)
 class payments(models.Model):
+    adminid=models.CharField(max_length=50,default='Demo')
     userid        =   models.CharField(max_length=100)
-    username    =   models.CharField(max_length=100)
+    videoid=models.CharField(max_length=50,default='Demo')
+    amount=models.CharField(max_length=50,default='0')
     paymentdate       =   models.DateTimeField(auto_now_add=True)
+class requests_generated(models.Model):
+    userid        =   models.CharField(max_length=100)
+    username=models.CharField(max_length=100)
+    comment=models.CharField(max_length=10000)
+    requesteddate       =   models.DateTimeField(auto_now_add=True)

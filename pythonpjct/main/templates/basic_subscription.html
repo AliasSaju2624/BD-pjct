@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Preferences</title>
+</head>
+<body>
+    <h1>Subscription Preferences</h1>
+    <form action="{% url 'update_subscription' %}" method="post">
+        {% csrf_token %}
+        <label for="premium">Premium Subscription:</label>
+        <input type="radio" id="premium" name="subscription" value="premium">
+        <button type="submit">Save Preferences</button>
+    </form>
+</body>
+</html>

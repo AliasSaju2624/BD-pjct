@@ -7,6 +7,30 @@
 <body>
     <h1>Admin</h1>
     <div>
+        <form action="{% url 'user_list' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">View User List</button>
+        </form>
+        <form action="{% url 'video_list' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">View Videos</button>
+        </form>
+        <a href="{% url 'make_payment' %}">
+            <button>Make payment</button>
+        </a>
+        <a href="{% url 'create_admin_page' %}">
+            <button>Add Admin</button>
+        </a>
+        <a href="{% url 'update_user_info' %}">
+            <button>Update Information</button>
+        </a>
+        <a href="{% url 'view_requests' %}">
+            <button>View Requests</button>
+        </a>
+        <a href="{% url 'user_logout' %}">
+            <button>User Logout</button>
+        </a>
        
     </div>
 </body>
+</html>
